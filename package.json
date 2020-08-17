@@ -19,6 +19,9 @@
   },
   "devDependencies": {
     "electron": "^9.1.1",
-    "electron-builder": "^22.7.0"
+    "electron-builder": "^22.7.0",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "gulp-watch": "^5.0.1"
   }
 }

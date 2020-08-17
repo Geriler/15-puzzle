@@ -37,6 +37,41 @@ class Game {
             }
         }
     }
-}
 
-module.exports = Game;
+    getButtons() {
+        return this.buttons;
+    }
+
+    moved(x, y) {
+        if (this.canMoved(x, y)) {
+            let emptyCoords = this.getCoordsEmptyElement();
+            let coords = {'x': x, 'y': y};
+            this.buttons[emptyCoords.x][emptyCoords.y] = this.buttons[coords.x][coords.y];
+            this.buttons[coords.x][coords.y] = undefined;
+        }
+        return this.getButtons();
+    }
+
+    canMoved(x, y) {
+        let coords = this.getCoordsEmptyElement();
+        if ((x === coords.x && ((y + 1) === coords.y || (y - 1) === coords.y))
+            || y === coords.y && ((x + 1) === coords.x || (x - 1) === coords.x)) {
+            return true;
+        }
+        return false;
+    }
+
+    getCoordsEmptyElement() {
+        for (var x = 0; x < this.size; x++) {
+            for (var y = 0; y < this.size; y++) {
+                if (this.buttons[x][y] === undefined) {
+                    return {'x': x, 'y': y};
+                }
+            }
+        }
+    }
+
+    isSolve() {
+        return (JSON.stringify(this.buttons) === JSON.stringify(this.solve));
+    }
+}

@@ -1,5 +1,4 @@
 const {app, BrowserWindow, Menu} = require('electron');
-const Game = require('./Game');
 let win;
 
 function createMenu() {
@@ -11,8 +10,6 @@ function createMenu() {
                     label: 'New game',
                     click: async() => {
                         win.reload();
-                        let game = new Game(4);
-                        game.start();
                     }
                 },
                 { role: 'quit' }
@@ -36,9 +33,6 @@ function main() {
 app.on('ready', () => {
     createMenu();
     main();
-
-    let game = new Game(4);
-    game.start();
 });
 
 app.on('window-all-closed', () => {
