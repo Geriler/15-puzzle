@@ -1,6 +1,7 @@
 {
   "name": "15-puzzle",
   "main": "main.js",
+  "version": "1.0.0",
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --linux AppImage snap deb rpm pacman tar.gz --win portable:x64",
